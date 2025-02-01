@@ -81,3 +81,5 @@ if (process.env.NODE_ENV !== "vercel") {
     console.log(`✅ サーバーがローカルで起動しました: http://localhost:${PORT}`);
   });
 }
+
+module.exports = app;
