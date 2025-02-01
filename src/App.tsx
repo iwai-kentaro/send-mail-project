@@ -13,7 +13,6 @@ import { useCallback, useState } from "react";
 
 function App() {
   const API_URL = import.meta.env.VITE_API_URL; // 環境変数から取得
-  console.log(API_URL);
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
