@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import express,{Request, Response} from "express";
+import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post("api/send-email", async (req: Request, res: Response) => {
+app.post("api/send-email", async (req, res) => {
   console.log("📨 メール送信リクエスト:", req.body); // デバッグ用ログ
   const { email, name, message } = req.body;
 
@@ -71,7 +71,7 @@ app.post("api/send-email", async (req: Request, res: Response) => {
 
   } catch (error) {
     console.error("❌ メール送信エラー:", error);
-    res.status(500).json({ error: (error as Error).message });
+    res.status(500).json({ error: (error).message });
   }
 });
 

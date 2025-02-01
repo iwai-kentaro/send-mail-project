@@ -1,4 +1,14 @@
 {
-  "version": 2,
-  "routes": [{ "src": "/api/send-email", "dest": "/api/server.ts" }]
+  "functions": {
+    "api/server.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/server.js"
+    }
+  ]
 }
