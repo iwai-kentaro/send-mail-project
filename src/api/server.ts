@@ -8,7 +8,7 @@ import nodemailer from "nodemailer";
 dotenv.config();
 
 const PORT = process.env.PORT || 5001;
-const HOST = process.env.LOCALHOST || "http://localhost:5173";
+const HOST = process.env.HOST || "http://localhost:5173";
 const app = express();
 
 // ✅ CORS 設定（`bodyParser.json()` より前に定義）
