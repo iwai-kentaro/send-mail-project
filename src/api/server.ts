@@ -8,13 +8,13 @@ import nodemailer from "nodemailer";
 dotenv.config();
 
 const PORT = process.env.PORT || 5001;
-// const HOST = process.env.HOST || "http://localhost:5173";
+const HOST = process.env.HOST || "http://localhost:5173";
 const app = express();
 
 // ✅ CORS 設定（`bodyParser.json()` より前に定義）
 app.use(
   cors({
-    origin: "https://send-mail-project.vercel.app",
+    origin: HOST,
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type"],
     credentials: true, // クッキーや認証情報を含める場合に必要
@@ -71,12 +71,7 @@ app.post("/api/send-email", async (req, res) => {
       res.status(500).json({ error: (error as Error).message });
     }
   });
-
-// // サーバー起動
-// app.listen(PORT, () => {
-//   console.log(`📨 メールサーバー起動 🚀 PORT: ${PORT}`);
-// });
-// ✅ Vercel の `サーバーレス API` としてエクスポート
+  
 // ✅ ローカル開発用にサーバーを起動
 if (process.env.NODE_ENV !== "vercel") {
   app.listen(PORT, () => {
