@@ -1,9 +1,8 @@
 import dotenv from "dotenv";
-import express from "express";
+import express,{Request, Response} from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
-import { VercelRequest, VercelResponse } from "@vercel/node";
 
 // .env ファイルの読み込み
 dotenv.config();
@@ -40,7 +39,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post("api/send-email", async (req:VercelRequest, res:VercelResponse) => {
+app.post("api/send-email", async (req: Request, res: Response) => {
   console.log("📨 メール送信リクエスト:", req.body); // デバッグ用ログ
   const { email, name, message } = req.body;
 
