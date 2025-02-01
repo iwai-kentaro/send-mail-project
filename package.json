@@ -3,14 +3,17 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "start": "concurrently \"yarn server\" \"yarn dev\"",
-    "build": "tsc -b && vite build",
-    "dev": "vite",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "server": "node --loader ts-node/esm src/api/server.ts"
-  },
+"scripts": {
+  "start": "concurrently \"yarn server\" \"yarn dev\"",
+  "build": "tsc -b && vite build",
+  "dev": "vite",
+  "lint": "eslint .",
+  "preview": "vite preview",
+  "server": "node --loader ts-node/esm src/api/server.ts",
+
+  "vercel-build": "yarn build && yarn compile-server",
+  "compile-server": "tsc --outDir dist"
+},
   "dependencies": {
     "@chakra-ui/react": "2",
     "@emotion/react": "^11.14.0",
