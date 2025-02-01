@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post("/send-email", async (req, res) => {
+app.post("api/send-email", async (req, res) => {
   console.log("📨 メール送信リクエスト:", req.body); // デバッグ用ログ
   const { email, name, message } = req.body;
 

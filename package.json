@@ -4,13 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"yarn server\" \"yarn dev\"",
-    "dev": "vite",
+    "start": "node api/server.js",
+    "server": "node --loader ts-node/esm src/api/server.ts",
+    "dev": "vercel dev",
+    "frontend-dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "node --loader ts-node/esm src/api/server.ts",
-    "vercel-build": "yarn build && yarn compile-server",
-    "compile-server": "tsc --outDir dist"
+    "compile-server": "tsc --outDir dist",
+    "deploy": "vercel --prod"
   },
   "dependencies": {
     "@chakra-ui/react": "2",
