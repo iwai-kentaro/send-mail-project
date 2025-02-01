@@ -12,7 +12,7 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 
 const ContactForm = () => {
-  const API_URL = import.meta.env.VITE_API_URL || "/api/send-email"; // 環境変数から取得（デフォルトはVercelのAPI）
+  const API_URL = "/api/send-email"; // 環境変数から取得（デフォルトはVercelのAPI）
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
