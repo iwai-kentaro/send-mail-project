@@ -4,6 +4,16 @@
       "runtime": "nodejs18.x"
     }
   },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "vercel-sapper"
+    },
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
