@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "src/api"]
+  "include": ["src", "src/api", "api/send-mail.ts"]
 }

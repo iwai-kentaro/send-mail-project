@@ -4,13 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node api/server.js",
-    "server": "node --loader ts-node/esm src/api/server.ts",
-    "dev": "vercel dev",
+    "dev": "vite",
     "frontend-dev": "vite",
     "lint": "eslint .",
     "preview": "vite preview",
-    "compile-server": "tsc --outDir dist",
     "deploy": "vercel --prod"
   },
   "dependencies": {

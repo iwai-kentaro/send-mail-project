@@ -8,8 +8,9 @@ import nodemailer from "nodemailer";
 dotenv.config();
 
 const PORT = process.env.PORT || 5001;
-const HOST = process.env.HOST || "https://send-mail-project-kentaro.vercel.app";
+const HOST = process.env.HOST || "http://localhost:5173";
 const app = express();
+
 
 
 // ✅ CORS 設定（`bodyParser.json()` より前に定義）
@@ -22,11 +23,10 @@ app.use(
   })
 );
 
+
+app.options("*", cors());
+
 app.use(express.json());
-
-
-
-// JSON パース設定
 app.use(bodyParser.json());
 
 // Gmail SMTP 設定
@@ -37,7 +37,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.GMAIL_PASS,
   },
 });
-
 
 app.post("api/send-email", async (req, res) => {
   console.log("📨 メール送信リクエスト:", req.body); // デバッグ用ログ
@@ -71,7 +70,7 @@ app.post("api/send-email", async (req, res) => {
 
   } catch (error) {
     console.error("❌ メール送信エラー:", error);
-    res.status(500).json({ error: (error).message });
+    res.status(500).json({ error: (error as Error).message });
   }
 });
 
@@ -82,4 +81,4 @@ if (process.env.NODE_ENV !== "vercel") {
   });
 }
 
-module.exports = app;
+export default app;

@@ -1,14 +1,9 @@
 {
   "functions": {
-    "api/server.js": {
+    "api/send-mail.ts": {
       "memory": 1024,
       "maxDuration": 10
     }
   },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "api/server.js"
-    }
-  ]
+  "routes": [{ "src": "/api/(.*)", "dest": "/api/$1" }]
 }
