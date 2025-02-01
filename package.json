@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 5173",
-    "server": "vercel dev",
+    "dev": "concurrently \"vite --port 5173\" \"yarn server\"",
+    "server": "node --loader ts-node/esm server.ts",
     "frontend": "vite --port 5173",
     "deploy": "vercel --prod"
   },
