@@ -22,6 +22,8 @@ app.use(
   })
 );
 
+app.use(express.json());
+
 
 
 // JSON パース設定
