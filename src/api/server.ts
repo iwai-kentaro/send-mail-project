@@ -10,7 +10,6 @@ dotenv.config();
 const PORT = process.env.PORT || 5001;
 const HOST = process.env.HOST || "https://send-mail-project-kentaro.vercel.app";
 const app = express();
-console.log(app);
 
 
 // ✅ CORS 設定（`bodyParser.json()` より前に定義）
