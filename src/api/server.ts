@@ -39,7 +39,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post("/api/send-email", async (req, res) => {
+app.post("/send-email", async (req, res) => {
   console.log("📨 メール送信リクエスト:", req.body); // デバッグ用ログ
   const { email, name, message } = req.body;
 
@@ -71,7 +71,7 @@ app.post("/api/send-email", async (req, res) => {
 
   } catch (error) {
     console.error("❌ メール送信エラー:", error);
-    res.status(500).json({ error: (error).message });
+    res.status(500).json({ error: (error as Error).message });
   }
 });
 
