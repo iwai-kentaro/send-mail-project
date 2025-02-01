@@ -36,7 +36,7 @@ function App() {
       e.preventDefault();
       try {
         const res = await axios.post(
-          `${API_URL}/send-email`,
+          `${API_URL}/send-mail`,
           {
             email,
             name,

@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "frontend-dev": "vite",
-    "lint": "eslint .",
-    "preview": "vite preview",
+    "dev": "vite --port 5173",
+    "server": "vercel dev",
+    "frontend": "vite --port 5173",
     "deploy": "vercel --prod"
   },
   "dependencies": {
