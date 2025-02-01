@@ -5,7 +5,6 @@
   "type": "module",
 "scripts": {
   "start": "concurrently \"yarn server\" \"yarn dev\"",
-  "build": "tsc -b && vite build",
   "dev": "vite",
   "lint": "eslint .",
   "preview": "vite preview",
