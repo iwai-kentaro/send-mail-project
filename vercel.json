@@ -1,7 +1,15 @@
 {
-  "functions": {
-    "api/send-email.ts": {
-      "runtime": "nodejs18.x"
+  "version": 2,
+  "functions": [
+    {
+      "src": "api/send-email.ts",
+      "use": "@vercel/node"
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    }
+  ]
 }
